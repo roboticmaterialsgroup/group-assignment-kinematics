@@ -25,7 +25,16 @@ git clone <PASTE THE REPO ADDRESS HERE>
 Open the repository that you just cloned in MS Visual Studio Code. Your Platform IO plugin should be working at this stage.
 
 ## Step 3: each team member: upload the program to your Romi
-Once uploaded, your Romi should output "Robot idle" in your terminal. After you press button A 
+Once uploaded, your Romi should drive at a constant speed of 50 mm/s and output the 
+velocity to the terminal. Here, you are provided with Encoders., Speed_controller., and Position_estimation. source
+and header files, which you *can* use for your individual and group assignment. Try to understand the implemenation 
+of the files and their inter-dependency, before procedding to the next step. If you cannot get the terminal to output
+the velicities as described above, please ask for help from your group members or SAs in one of their lab sessions
+or office hours.
+
+## Step 4: each team member: 
+
+ "Robot idle" in your terminal. After you press button A 
 on your Romi board, this message should change to "Distance measurement". Essentially, you are provided
 with an example of a simple state machine, which you can use for your individual
 and group assignments. Try to understand the implementation of the state machine, before

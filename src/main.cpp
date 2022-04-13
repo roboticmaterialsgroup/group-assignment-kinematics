@@ -12,5 +12,5 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  mySpeedController.Run(50,50);
+  mySpeedController.Move(50,50);
 }

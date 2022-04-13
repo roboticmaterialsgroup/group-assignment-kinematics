@@ -7,9 +7,6 @@ float x = 0;
 float y = 0;
 float theta = 0;
 
-time_prev = millis();
-time_now = 0;
-
 void Position::Init(void)
 {
     //

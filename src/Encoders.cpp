@@ -5,8 +5,7 @@ int count_left = 0;
 int count_right = 0;
 int prev_count_left = 0;
 int prev_count_right = 0;
-float previous_time = 0;
-uint32_t lastUpdate = 0;
+uint32_t last_update = 0;
 
 Romi32U4Encoders encoders;
 
@@ -49,13 +48,13 @@ float Encoder::ReadVelocityRight(void)
 boolean Encoder::UpdateEncoderCounts(void)
 {
   uint32_t now = millis();
-  if(now - lastUpdate >= interval)
+  if(now - last_update >= interval)
   {    
     prev_count_left = count_left;
     prev_count_right = count_right;
     count_left = encoders.getCountsLeft();
     count_right = encoders.getCountsRight();
-    lastUpdate = now;
+    last_update = now;
     return 1;
   }
   return 0;

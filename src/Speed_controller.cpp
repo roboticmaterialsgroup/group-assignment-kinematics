@@ -10,7 +10,7 @@ void SpeedController::Init(void)
     MagneticEncoder.Init();
 }
 
-void SpeedController::Run(float target_velocity_left, float target_velocity_right)
+void SpeedController::Move(float target_velocity_left, float target_velocity_right)
 {
     if(MagneticEncoder.UpdateEncoderCounts()){
         float e_left = target_velocity_left - MagneticEncoder.ReadVelocityLeft();
@@ -23,24 +23,13 @@ void SpeedController::Run(float target_velocity_left, float target_velocity_righ
         float u_right = Kp*e_right + Ki*E_right;
 
         motors.setEfforts(u_left,u_right);
-        //odometry.UpdatePose(target_velocity_left,target_velocity_right); //this is where your newly programmed function is/will be called
         MagneticEncoder.PrintVelocities();
     }
 }
 
-boolean SpeedController::Turn(int degree, int direction)
+boolean SpeedController::Turn(int degree, int direction) //degrees, direction of rotation: 0->left, 1->right
 {
     //program a turn function
-}
-
-boolean SpeedController::Straight(int target_velocity, int time)
-{
-    //program a straight movement function in cm/s or mm/s
-}
-
-boolean SpeedController::Curved(int target_velocity_left, int target_velocity_right, int time)
-{
-    //program a curved movement function
 }
 
 void SpeedController::Stop()
