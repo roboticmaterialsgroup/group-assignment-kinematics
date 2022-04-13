@@ -27,8 +27,8 @@ Open the repository that you just cloned in MS Visual Studio Code. Your Platform
 ## Step 3: each team member: upload the program to your Romi
 Once uploaded, your Romi should drive at a constant speed of 50 mm/s after button A was pressed. Here, you are provided with Encoders., Speed_controller., and Position_estimation. source
 and header files, which you *can* use for your individual and group assignment. Try to understand the implemenation 
-of the files and their inter-dependency, before procedding to the next step. If you cannot get the terminal to output
-the velicities as described above, please ask for help from your group members or SAs in one of their lab sessions
+of the files and their inter-dependency, before proceeding to the next step. If you cannot get the terminal to output
+the velocities as described above, please ask for help from your group members or SAs in one of their lab sessions
 or office hours.
 
 ## Step 4: each team member: create personal file in user folder
@@ -77,7 +77,7 @@ and a branch with your name (You may need to refresh the page).
 ## Step 6: each team member: forward kinematics
 You will program the ``void Position::UpdatePose(float target_speed_left, float target_speed_right)`` function that performs the forward kinematics calculation. This function keeps track of the pose (x,y, theta) of your robot using encoder counts. There are three different cases that you need to cover: (i) straight movement, (ii) rotation, and (iii) curved movement; and for each case the equations differ. Have a look at the lecture slides if you do not remember the governing equations in detail.
 
-## Step 7: each team member: moving straight
+## Step 7: each team member: moving straight - demo 1
 In the laboratory, you will find an arena with graph paper; each grid square is 1 cm in length. For the sign off, put your Romi into the arena and let it move straight at an arbitary speed and for an arbitrary duration (of course, you do not want your Romi to collide with the arena wall). Check your terminal whether the calculated pose of your robot aligns with the actual pose in the arena (the grid paper will be helpful to determine the pose of your robot). Repeat this experiment one more time. If your estimated and actual poses are sufficiently close to one another (i.e., 1 cm), you will receive your sign-off.
 
 [SIGN-OFF: 1]
@@ -86,17 +86,17 @@ Create a release of your code in GitHub and call it: ``demo 1 YOUR-NAME``. As ta
 
 You can improve your pose estimation for straight movement by optimizing your value for the wheel radius. Any imprecision in your wheel radius will lead to imprecisions in your position estimations. 
 
-## Step 8: each team member: turning 
-Repeat step 7, but instead of moving straight, your robot turns at an arbitrary speed and arbitrary rotation. For the sign off, put your Romi into the arena and show that your robot can rotate < 360 degrees and > 360 degrees. When your robot exceeeds 360 degrees, it should reset its orientation to 0 degrees. If your estimated and actual poses are sufficiently close to one another (i.e., 5 degrees), you will receive your sign-off.
+## Step 8: each team member: turning - demo 2
+Repeat step 7, but instead of moving straight, your robot turns at an arbitrary speed and arbitrary rotation. For the sign off, put your Romi into the arena and show that your robot can rotate < 360 degrees and > 360 degrees. When your robot exceeds 360 degrees, it should reset its orientation to 0 degrees. If your estimated and actual poses are sufficiently close to one another (i.e., 5 degrees), you will receive your sign-off.
 
 [SIGN-OFF: 2]
 
 Create a release of your code in GitHub and call it: ``demo 2 YOUR-NAME``. As tag, enter 2.0.X.
 
-You can improve your pose estimation for rotating movement by optimizing your value for the wheel track. Any imprecision in your wheel track will lead to imprecisions in your position estimations.
+You can improve your pose estimation for rotating movements by optimizing your value for the wheel track. Any imprecision in your wheel track will lead to imprecisions in your position estimations.
 
-## Step 9: each team member: curved movement
-Combine steps 8 and 9, and make your robot move in an arbitrary arch. For the sign off, put your Romi into the arena, and print the pose estimation to the terminal. If your estimated and actual poses are sufficiently close to one another (i.e., 1 cm in Euclidean distance and 5 degrees in orientation), you will receive your sign-off.
+## Step 9: each team member: curved movement - demo 3
+Combine steps 8 and 9, and make your robot move in an arbitrary arch. For the sign off, put your Romi into the arena, and print the pose estimation to the terminal. If your estimated and actual poses are sufficiently close to one another (i.e., 1 cm in Euclidean distance, and 5 degrees in orientation), you will receive your sign-off.
 
 [SIGN-OFF: 3]
 
@@ -116,14 +116,15 @@ and work as a group from your master branch.
 git checkout master
 ```
 
-## Step 11: inverse kinematics
+## Step 11: inverse kinematics - demo 4
 Here, you will apply inverse kinematics to command your Romi to move to one of several positions. The specific position will be commanded using the buttons
 of the Romi. We will discuss control algorithms in class.
 
 Edit your code so that pressing a button will command the Romi to drive to a point:
-*Button A sets the destination to x=30cm; y=30cm
-*Button B sets the destination to x=60cm; y=0cm
-*Button C sets the destination to x=30cm; y=-30cm
+
+* Button A sets the destination to x=30cm; y=30cm
+* Button B sets the destination to x=60cm; y=0cm
+* Button C sets the destination to x=30cm; y=-30cm
 
 You will need to extend your state machine and define a state ``DRIVE_TO_POINT``, for when your Romi is moving to a destination.
 

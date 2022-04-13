@@ -1,19 +1,17 @@
 #include <Arduino.h>
-#include <Encoders.h>
 #include <Speed_controller.h>
 
 SpeedController robot;
 Romi32U4ButtonA buttonA;
 
 enum ROBOT_STATE {IDLE, MOVE, TURN};
-ROBOT_STATE robot_state = IDLE; //initial state: IDLE
+ROBOT_STATE robot_state = IDLE;
 
 void setup() {
   robot.Init();
 }
         
 void loop() {
-  //mySpeedController.Move(50,50);
 
   switch (robot_state)
     {
