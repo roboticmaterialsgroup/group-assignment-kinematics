@@ -29,7 +29,7 @@ void SpeedController::Move(float target_velocity_left, float target_velocity_rig
 
 boolean SpeedController::Turn(int degree, int direction) //degrees, direction of rotation: 0->left, 1->right
 {
-    //program a turn function
+    //Individual assignment: demo 1
 }
 
 void SpeedController::Stop()

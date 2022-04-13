@@ -2,15 +2,34 @@
 #include <Encoders.h>
 #include <Speed_controller.h>
 
-SpeedController mySpeedController;
+SpeedController robot;
+Romi32U4ButtonA buttonA;
+
+enum ROBOT_STATE {IDLE, TURN};
+ROBOT_STATE robot_state = IDLE; //initial state: IDLE
 
 void setup() {
-  // put your setup code here, to run once:
-  mySpeedController.Init();
-
+  robot.Init();
 }
-
+        
 void loop() {
-  // put your main code here, to run repeatedly:
-  mySpeedController.Move(50,50);
+  //mySpeedController.Move(50,50);
+
+  switch (robot_state)
+    {
+    case IDLE:
+        if(buttonA.getSingleDebouncedRelease()){ 
+            robot_state = TURN; 
+            robot.Stop();             
+        } 
+        else { 
+            robot_state = IDLE;
+            robot.Stop(); 
+        }   
+        break;
+    
+    case TURN:
+        if(robot.Turn(90,-1)) robot_state = IDLE;
+        break;
+  }
 }
