@@ -5,7 +5,7 @@
 SpeedController robot;
 Romi32U4ButtonA buttonA;
 
-enum ROBOT_STATE {IDLE, TURN};
+enum ROBOT_STATE {IDLE, MOVE, TURN};
 ROBOT_STATE robot_state = IDLE; //initial state: IDLE
 
 void setup() {
@@ -19,7 +19,7 @@ void loop() {
     {
     case IDLE:
         if(buttonA.getSingleDebouncedRelease()){ 
-            robot_state = TURN; 
+            robot_state = MOVE; 
             robot.Stop();             
         } 
         else { 
@@ -28,8 +28,8 @@ void loop() {
         }   
         break;
     
-    case TURN:
-        if(robot.Turn(90,-1)) robot_state = IDLE;
+    case MOVE:
+        robot.Move(50,50);
         break;
   }
 }
