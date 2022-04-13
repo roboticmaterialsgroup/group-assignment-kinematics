@@ -132,41 +132,8 @@ You will want to call ``Position::UpdatePose(float target_speed_left, float targ
 
 You will need to add a function that checks whether you have reached the destination. Add a buffer around each point (e.g., 2 - 5 cm) that is "good enough". Otherwise your Romi will try to perfectly reach the target position, which it never will ...
 
+Demonstrate this demo to a SA; if not all team members can be present for the sign-off, explain your circumstances to the SA. They will be in touch with me.
+
 [SIGN-OFF: 4]
 
 Create a release of your code in GitHub and call it: `demo 4 YOUR-GROUP-NAME`. As tag, enter 4.0.0.
-
-
-
-Program  using the equations derived in lectures. You will need to update 
-x, y, and theta (i.e., the pose) of your robot as it moves and print the robot's pose estimation to the terminal every 50ms. The pose can be entirely calculated by both wheel velocities.
-
-Remember: if you fed your position tracking algorithm with target velocities, rather than actual measured velocities from your encoders, you would receive an 
-idealized pose as opposed to the actual pose of your robot.
-
-Demonstrate rotations of 90, 180, 270, and 360 degrees and  Try to be within 5 degree error range.
-
-
-
-## Step 8: group: inverse kinematics
-
-
-
-Instruct your Romi to turn 180 degrees. 
-
-Program the 
-
-Create a release of your code in GitHub and call it: `demo 1 YOUR-NAME` (e.g., demo 1 NEMITZ). As tag, enter `1.0.X`.
-
-
- your robot parameters (i.e., the distance between robot wheels **l**, or the radius of your robot **R**, or the number of counts that it takes to perform )
-
-
-Then you will adjust the radius **r** of your wheels in your estimation algorithm so that the estimated motion of your robot matches the actual motion. T
-
-
-; in practice, however, real-world physics (friction, bumps, wobbles, etc.) as well as uncertainty in the measurements themselves (where do you measure the wheel track from?) will cause the true performance to differ from what your calculations will predict.
-
-
-
-To account for this,  To do that, you will need to create a forward kinematic model. Then, using the buttons on your Romi, you'll command your Romi to make simple motions so that you can perform the calibration.
